@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<!--
+        描述：导航
+    -->
+<div  th:fragment="nav">
+
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h1 class="ui teal header item">Blog</h1>
+                <a href="#" class="item "><li class="home icon"></li>首页</a>
+                <a href="#" class="item"><li class="idea icon"></li>分类</a>
+                <a href="#" class="item"><li class="tags icon"></li>标签</a>
+                <a href="#" class="item"><li class="info icon"></li>关于我</a>
+
+                <div class="right item">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search..." />
+                        <li class="search link icon"></li>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

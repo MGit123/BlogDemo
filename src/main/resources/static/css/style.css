@@ -1,0 +1,56 @@
+.m-padded-tb-mini{
+	padding-top: 0.2em !important;
+	padding-bottom: 0.2em !important;
+}
+
+.m-padded-tb-small{
+	padding-top: 1em !important;
+	padding-bottom: 1em !important;
+}
+.m-padded-tb-large{
+	padding-top: 2em !important;
+	padding-bottom: 2em !important;
+}
+.m-padded-tb-big{
+	padding-top: 3em !important;
+	padding-bottom: 3em !important;
+}
+.m-padded-tb-huge{
+	padding-top: 4em !important;
+	padding-bottom: 4em !important;
+}
+.m-padded-tb-massive{
+    padding-top: 5em !important;
+	padding-bottom: 5em !important;
+}
+
+
+/**  文字 **/
+.m-text{
+	font-weight: 300 !important;
+	letter-spacing: 1px;
+	line-height: 1.8;
+}
+
+.m-opicity-mini{
+	opacity: 0.8 !important;
+}
+
+.m-inline-block{
+	display: inline-block;
+}
+
+
+.m-container{
+	max-width: 1024px !important;
+	margin:auto !important;}
+
+.m-margin-tb-small{
+	margin-top: 0.3em !important;
+	margin-bottom: 0.3em !important;
+	margin-right: 0.2em !important;
+}
+
+.m-black{
+	color: #333333;
+}
