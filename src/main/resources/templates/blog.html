@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="css/style.css"/>
+    <script src="js/jquery-3.1.0.min.js" ></script>
+    <script src="js/semantic.min.js"></script>
+    <script>
+        function menushow() {
+            $('.m-item').toggleClass('m-mobile-hide');
+        }
+    </script>
+</head>
+<body>
+
+<div th:insert="~{header::nav}"></div>
+
+<!--中间部分 -->
+<div class=" m-container-small m-padded-tb-huge">
+    <div class="ui container">
+
+        <!--头部 -->
+        <div class="ui top attached segment ">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <img src="img/head.jpeg" alt="背景图片" class="ui avatar image" />
+                    <div class="content"><a href="#" class="header">Mr Doctor</a></div>
+                </div>
+                <div class="item">
+                    <li class="calendar icon"></li>更新于：2019-09-16
+                </div>
+                <div class="item">
+                    <li class="eye icon"></li>2143
+                </div>
+            </div>
+        </div>
+
+        <!--背景图片-->
+        <div class="ui  attached segment ">
+            <img alt="" src="img/blog-back.jpg"  class="ui fluid rounded image " />
+        </div>
+
+        <!--内容-->
+        <div class="ui  attached segment ">
+           <div class="ui right aligned basic segment">
+              <div class="ui basic orange label">原创</div>
+           </div>
+
+            <h2 class="ui center aligned header">Semantic UI 的文档怎么看</h2>
+            <div id="content" class="content m-padded-lr">
+            <p class="m-padded-tb-mini m-margin-tb-small">
+                打算在自己的项目的中使用 SemanticUI,看他家的官方文档时发现没什么卵用.
+                比如说button,只给了一个 HTML 结构,至于 button 的各种 state 完全没有啊.
+                倒是在某个收费网站看到了一个
+                麻烦有用过 SemanticUI 的 V 友指个路
+            </p>
+            </div>
+
+            <!--标签-->
+            <div class="m-padded-lr">
+                <div class="ui basic teal left pointing label">方法论</div>
+            </div>
+
+            <!--赞赏-->
+            <div class="ui center aligned basic segment">
+                <button class="ui orange basic circular button">赞赏</button>
+            </div>
+        </div>
+
+        <!--博客信息-->
+        <div class="ui  attached positive message ">
+           <div class="ui middle aligned grid">
+               <div class="eleven wide column">
+               <div class="list">
+                   <li>作者：Mr Doctor（联系作者）</li>
+                   <li>发表时间：2019-09-16</li>
+                   <li>版权声明：自由转载-非商用-非衍生-保持署名</li>
+                   <li>公众号转载：请在文末扫描作者二维码</li>
+               </div>
+               </div>
+               <div class="five wide column">
+                   <img src="img/code.gif" class="ui right floated rounded bordered image" th:width="120px" alt="二维码"/>
+               </div>
+           </div>
+        </div>
+
+        <!--留言区域-->
+        <div class="ui bottom attached segment ">
+            <!--评论-->
+            <div class="ui teal segment">
+            <div class="ui threaded comments">
+                <h3 class="ui dividing header">Comments</h3>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="img/head.jpeg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Matt</a>
+                        <div class="metadata">
+                            <span class="date">今天下午 5:42</span>
+                        </div>
+                        <div class="text">太赞了！ </div>
+                        <div class="actions">
+                            <a class="reply">回复</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="img/head.jpeg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Elliot Fu</a>
+                        <div class="metadata">
+                            <span class="date">昨天上午12:30</span>
+                        </div>
+                        <div class="text">
+                            <p>這對我的研究是非常有用.謝謝!</p>
+                        </div>
+                        <div class="actions">
+                            <a class="reply">回复</a>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="img/head.jpeg">
+                            </a>
+                            <div class="content">
+                                <a class="author">Jenny Hess</a>
+                                <div class="metadata">
+                                    <span class="date">刚刚</span>
+                                </div>
+                                <div class="text">艾略特你永远是多么正确 :) </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="img/head.jpeg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Joe Henderson</a>
+                        <div class="metadata">
+                            <span class="date">5 天以前</span>
+                        </div>
+                        <div class="text">老兄，这太棒了。非常感谢。 </div>
+                        <div class="actions">
+                            <a class="reply">回复</a>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+
+                <!--表单-->
+                <div class="ui form">
+                    <div class=" field">
+                      <textarea class="" name="content" placeholder="请输入评论内容...."></textarea>
+                    </div>
+                    <div class=" fields">
+                    <div class=" field">
+                        <div class="ui left icon input">
+                            <!--<li class="user icon"></li>-->
+                     <input type="text" name="nickname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class=" field">
+                        <div class="ui left icon input">
+                            <!--<li class="mail icon"></li>-->
+                        <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                        <div class=" field">
+                            <button class="ui teal button">发布</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+<div th:insert="~{footer::foot}"></div>
+
+
+</body>
+</html>
