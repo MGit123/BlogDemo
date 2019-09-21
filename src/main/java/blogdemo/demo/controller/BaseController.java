@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BaseController {
 
     @GetMapping("/")
+    public String first(){
+        return "index";
+    }
+
+    @GetMapping("/index")
     public String index(){
         return "index";
     }
@@ -19,5 +24,25 @@ public class BaseController {
     @GetMapping("/blog")
     public String blog(){
         return "blog";
+    }
+
+    @GetMapping("/type")
+    public String type(){
+        return "type";
+    }
+
+    @GetMapping("/tag")
+    public String tag(){
+        return "tag";
+    }
+
+    @GetMapping("/archive")
+    public String archive(){
+        return "archive";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "about";
     }
 }

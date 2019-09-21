@@ -12,6 +12,14 @@
         function menushow() {
             $('.m-item').toggleClass('m-mobile-hide');
         }
+
+        function codeshow() {
+            $('#payButton').popup({
+                popup: $('.payPop.popup'),
+                position: 'bottom center'
+            });
+        }
+
     </script>
 </head>
 <body>
@@ -50,7 +58,7 @@
            </div>
 
             <h2 class="ui center aligned header">Semantic UI 的文档怎么看</h2>
-            <div id="content" class="content m-padded-lr">
+            <div id="content" class="content m-padded-lr-responsive">
             <p class="m-padded-tb-mini m-margin-tb-small">
                 打算在自己的项目的中使用 SemanticUI,看他家的官方文档时发现没什么卵用.
                 比如说button,只给了一个 HTML 结构,至于 button 的各种 state 完全没有啊.
@@ -60,14 +68,30 @@
             </div>
 
             <!--标签-->
-            <div class="m-padded-lr">
+            <div class="m-padded-lr-responsive">
                 <div class="ui basic teal left pointing label">方法论</div>
             </div>
 
+
             <!--赞赏-->
             <div class="ui center aligned basic segment">
-                <button class="ui orange basic circular button">赞赏</button>
+                <button id="payButton" onclick="codeshow()" class="ui orange basic circular button">赞赏</button>
             </div>
+            <div class="ui payPop flowing popup transition hidden">
+                <div class="ui orange basic label">
+                    <div class="ui images" style="font-size: inherit !important;">
+                        <div class="image">
+                            <img src="img/zhifu.jpg" class="ui rounded bordered image" style="width:120px;" />
+                            <div>支付宝</div>
+                        </div>
+                        <div class="image">
+                            <img src="img/zhifu.jpg" class="ui rounded bordered image" style="width: 120px;" />
+                            <div>微信</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!--博客信息-->
@@ -82,7 +106,7 @@
                </div>
                </div>
                <div class="five wide column">
-                   <img src="img/code.gif" class="ui right floated rounded bordered image" th:width="120px" alt="二维码"/>
+                   <img src="img/code.gif" class="ui right floated rounded bordered image" th:width="100px" alt="二维码"/>
                </div>
            </div>
         </div>
@@ -165,20 +189,20 @@
                       <textarea class="" name="content" placeholder="请输入评论内容...."></textarea>
                     </div>
                     <div class=" fields">
-                    <div class=" field">
+                    <div class=" field m-margin-tb-mini m-mobile-width">
                         <div class="ui left icon input">
                             <!--<li class="user icon"></li>-->
                      <input type="text" name="nickname" placeholder="姓名">
                         </div>
                     </div>
-                    <div class=" field">
+                    <div class=" field m-margin-tb-mini m-mobile-width">
                         <div class="ui left icon input">
                             <!--<li class="mail icon"></li>-->
                         <input type="text" name="email" placeholder="邮箱">
                         </div>
                     </div>
-                        <div class=" field">
-                            <button class="ui teal button">发布</button>
+                        <div class=" field m-margin-tb-mini m-mobile-width ">
+                            <button class="ui teal button m-mobile-width">发布</button>
                         </div>
                     </div>
                 </div>

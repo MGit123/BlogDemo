@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <title>归档</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="css/style.css"/>
+    <script src="js/jquery-3.1.0.min.js" ></script>
+    <script src="js/semantic.min.js"></script>
+    <script>
+        function menushow() {
+            $('.m-item').toggleClass('m-mobile-hide');
+        }
+
+    </script>
+</head>
+<body>
+
+<div th:insert="~{header::nav}"></div>
+
+<!--中间部分 -->
+<div class=" m-container-small m-padded-tb-huge">
+    <div class="ui container">
+
+        <!--头部 -->
+        <div class="ui top attached segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">归档</h3>
+                </div>
+                <div class="right aligned column">
+                    共<h3 class="ui orange header m-inline-block">114</h3>篇
+                </div>
+            </div>
+        </div>
+
+        <!--2019-->
+        <h2 class="ui center aligned header">2019</h2>
+        <div class="ui fluid vertical menu">
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2019.09.12</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2019.09.12</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2019.09.12</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+        </div>
+
+        <!--2018-->
+        <h2 class="ui center aligned header">2018</h2>
+        <div class="ui fluid vertical menu">
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2019.08.12</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2018.09.11</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                  关于刻苦联系的清单<div class="ui teal basic left pointing label m-padded-tb-mini">2019.09.10</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+            </a>
+        </div>
+
+
+    </div>
+</div>
+
+<div th:insert="~{footer::foot}"></div>
+
+
+</body>
+</html>
