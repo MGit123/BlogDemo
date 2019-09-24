@@ -30,6 +30,9 @@ body{
 	padding-bottom: 5em !important;
 }
 
+.m-padded{
+	padding: 1em !important;
+}
 
 /**  文字 **/
 .m-text{
@@ -109,4 +112,14 @@ body{
 		width:100% !important;
 	}
 
+}
+
+.m-fixed{
+	position: fixed !important;
+	z-index: 1 !important;
+}
+
+.m-right-bottom{
+	bottom: 0 !important;
+	right: 0 !important;
 }
