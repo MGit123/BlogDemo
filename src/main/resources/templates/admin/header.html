@@ -21,9 +21,9 @@
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h1 class="ui teal header item">后台管理</h1>
-                <a href="/index" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-                <a href="/type" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-                <a href="/tag" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="/admin/blogManage" class="m-item item m-mobile-hide" th:classappend="${header=='blogManage'||header=='blogAdd'? 'teal active':''}"></i>博客</a>
+                <a href="/admin/typeManage" class="m-item item m-mobile-hide" th:classappend="${header=='typeManage'||header=='typeAdd'? 'teal active':''}"></i>分类</a>
+                <a href="/admin/tagManage" class="m-item item m-mobile-hide" th:classappend="${header=='tagManage'||header=='tagAdd'? 'teal active':''}"></i>标签</a>
                 <div class="right menu">
                     <div class="ui dropdown item">
                         <div class="text">

@@ -21,24 +21,14 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/blogs")
-    public String blogs(){
-        return "admin/blogs";
+    @GetMapping("/login")
+    public String login(){
+        return "admin/login";
     }
 
     @GetMapping("/index")
     public String index(){
         return "admin/index";
-    }
-
-    @GetMapping("/blogInput")
-    public String blogInput(){
-        return "admin/blogInput";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "admin/login";
     }
 
 
