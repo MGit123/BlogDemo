@@ -5,18 +5,21 @@ import blogdemo.demo.dao.BlogDao;
 import blogdemo.demo.entity.Blog;
 import blogdemo.demo.entity.Type;
 import blogdemo.demo.service.BlogSerivce;
+import blogdemo.demo.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,11 +40,16 @@ public class BlogServiceImpl implements BlogSerivce {
 
     @Override
     public Blog saveBlog(Blog blog) {
+
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setViewCount(0);
         return blogDao.save(blog);
     }
 
+    @Transactional
     @Override
-    public Page<Blog> blogList(Pageable pageable, Blog blog) {
+    public Page<Blog> blogList(Pageable pageable, BlogQuery blog) {
         return blogDao.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
@@ -49,8 +57,8 @@ public class BlogServiceImpl implements BlogSerivce {
                 if(!"".equals(blog.getTitle())&&blog.getTitle()!=null){
                     predicates.add(cb.like(root.<String>get("title"),"%"+blog.getTitle()+"%"));
                 }
-                if(blog.getType().getId()!=null){
-                    predicates.add(cb.equal(root.<Type>get("type").get("id"),blog.getType().getId()));
+                if(blog.getTypeId()!=null){
+                    predicates.add(cb.equal(root.<Type>get("type").get("id"),blog.getTypeId()));
                 }
                 if(blog.isCommentabled()){
                     predicates.add(cb.equal(root.<Boolean>get("recommend"),blog.isCommentabled()));
@@ -61,6 +69,7 @@ public class BlogServiceImpl implements BlogSerivce {
         },pageable);
     }
 
+    @Transactional
     @Override
     public Blog updateBlog(Long id, Blog blog) {
         Blog b=blogDao.findBlogById(id);

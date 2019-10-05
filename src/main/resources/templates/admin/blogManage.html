@@ -27,19 +27,19 @@
 <!--中间部分 -->
 <div class=" m-container-small m-padded-tb-huge">
     <div class="ui container">
-        <form action="#" method="post" class="ui secondary segment form">
+        <form method="post" class="ui  secondary segment form">
+            <input type="hidden" name="page">
             <div class="inline fields">
                 <div class="field">
                  <input type="text" name="title" placeholder="标题">
                 </div>
                 <div class="field">
                     <div class="ui selection dropdown">
-                        <input type="hidden" name="type">
+                        <input type="hidden" name="typeId">
                         <li class="dropdown icon"></li>
                         <div class="default text">分类</div>
                         <div class="menu">
-                            <div class="item" data-value="1">错误日志</div>
-                            <div class="item" data-value="2">开发者手册</div>
+                            <div class="item" th:each="type:${types}" th:data-value="${type.id}" th:text="${type.name}"></div>
                         </div>
                     </div>
                 </div>
@@ -50,50 +50,62 @@
                     </div>
                 </div>
                 <div class="field">
-                    <button class="ui mini teal basic button">搜索</button>
+                    <button type="button" id="search-btn" class="ui mini teal basic button">搜索</button>
                 </div>
             </div>
         </form>
 
-        <table class="ui compact teal table">
+      <div id="table-container">
+        <table th:fragment="blogs" class="ui celled compact teal table">
             <thead>
             <tr>
                 <th></th>
                 <th>标题</th>
                 <th>类型</th>
+                <th>博客状态</th>
                 <th>推荐</th>
                 <th>更新时间</th>
                 <th>操作</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>可以练习</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2019-2-12</td>
+            <tr th:each="blog,iterStat :${blogList.content}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${blog.title}"></td>
+                <td th:text="${blog.type.name}"></td>
+                <td th:text="${blog.published}?'发布':'草稿'"></td>
+                <td th:text="${blog.commentabled}?'是':'否'"></td>
+                <td th:text="${blog.updateTime}"></td>
                 <td>
-                    <a href="#" class="ui mini teal basic button">编辑</a>
-                    <a href="#" class="ui mini red basic button">删除</a>
+                    <a  th:href="@{/admin/blogEdit/{id}(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+                    <a th:href="@{/admin/blogDelete/{id}(id=${blog.id})}" class="ui mini red basic button">删除</a>
                 </td>
             </tr>
             </tbody>
 
             <tfoot>
               <tr>
-                  <th colspan="6">
-                      <div class="ui mini pagination menu">
-                      <a class="  item">上一页</a>
-                          <a class="item">下一页</a>
+                  <th colspan="7">
+                      <div class="ui mini pagination menu" th:if="${blogList.totalPages>1}">
+                      <a class="item" onclick="page(this)"  th:attr="data-page=${blogList.number}-1" th:if="${blogList.hasPrevious()}">上一页</a>
+                          <a class="item" onclick="page(this)"  th:attr="data-page=${blogList.number}+1" th:if="${blogList.hasNext()}">下一页</a>
                       </div>
-                      <a href="#" class="ui mini right floated teal basic button">新增</a>
+                      <a href="/admin/blogAdd" class="ui mini right floated teal basic button">新增</a>
                   </th>
               </tr>
             </tfoot>
 
         </table>
 
+      </div>
+
+          <div class="ui success message" th:if="${message!=null}">
+              <i class="close icon">×</i>
+              <div class="header">提示</div>
+              <p th:text="${message}"></p>
+          </div>
+
+      </div>
     </div>
 </div>
 
@@ -107,6 +119,31 @@
     $(".ui.dropdown")
         .dropdown()
     ;
+
+    $('.message .close')
+        .on('click',function(){
+            $(this).closest('.message')
+                .transition('fade');
+
+        });
+
+    function page(obj) {
+        $("[name='page']").val($(obj).data("page"));
+        loadData();
+    }
+    
+    $("#search-btn").click(function() {
+        loadData();
+    });
+
+    function loadData(){
+        $("#table-container").load("/admin/blogManage/search",{
+            title:$("[name='title']").val(),
+            typeId:$("[name='typeId']").val(),
+            commentabled:$("[name='recommend']").prop('checked'),
+            page:$("[name='page']").val()
+        });
+    }
 </script>
 
 </body>
